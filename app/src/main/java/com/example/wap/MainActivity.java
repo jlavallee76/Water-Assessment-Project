@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_map:
                         Log.d("MH", "Map Button Selected");
-                        Intent intent = new Intent(this, MapActivity.class);
+                        Intent intent = new Intent(MainActivity.this, MapActivity.class);
                         startActivity(intent);
 
                         break;

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WAP">
         <activity android:name=".MapActivity"></activity>
-        <activity android:name=".activity_map" />
+
         <activity android:name=".ui.home.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
