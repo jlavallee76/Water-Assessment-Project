@@ -47,4 +47,7 @@ dependencies {
 
     // Lottie Dependency For Animations
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+    //Map Dependency
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
 }
