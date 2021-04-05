@@ -12,4 +12,10 @@
 
     <!--    Map critical string.-->
     <string name="mapbox_access_token">pk.eyJ1IjoibnN0YWxnaWMiLCJhIjoiY2trZndsZWV1MDlnYTJ2azJmOHlkdzZldiJ9.3Y1Gl-AFgXzgRSCYLhRMdA</string>
+    <string name="user_location_permission_not_granted">NO GRANT</string>
+    <string name="user_location_permission_explanation"> CHIME</string>
+    <string name="location_picker_select_location_button_cancel">Cancel</string>
+    <string name="location_picker_select_location_button_select">Select a location</string>
+    <string name="location_picker_dropped_marker_snippet_no_results">No results</string>
+    <string name="location_picker_place_name_result">Place name: %1$s</string>
 </resources>

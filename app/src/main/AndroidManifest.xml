@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WAP">
-        <activity android:name=".MapActivity"></activity>
 
         <activity android:name=".ui.home.SplashScreen">
             <intent-filter>

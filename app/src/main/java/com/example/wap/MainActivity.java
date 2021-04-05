@@ -21,6 +21,8 @@ import com.mapbox.mapboxsdk.maps.Style;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.net.URI;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

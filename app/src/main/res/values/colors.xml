@@ -25,4 +25,8 @@
     // Basic Off Black and White
     <color name="off_white">#F2F2F2</color>
     <color name="off_black">#0D0D0D</color>
+
+    //Map Colors - Buttons Etc
+    <color name="colorAccent">#009688</color>
+    <color name="colorPrimary">#1D81D8</color>
 </resources>
