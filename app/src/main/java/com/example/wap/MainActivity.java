@@ -14,7 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.wap.ui.home.SplashScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -53,19 +52,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Log.d("MH", "Nav item selected.");
+                Intent intent;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
+
                         break;
                     case R.id.navigation_map:
-                        Log.d("MH", "Map Button Selected");
-                        Intent intent = new Intent(MainActivity.this, MapActivity.class);
+
+                        intent = new Intent(MainActivity.this, MapActivity.class);
                         startActivity(intent);
+
                         break;
 
                     case R.id.navigation_search:
+
                         break;
 
                     case R.id.navigation_settings:
+
+                        intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(intent);
+
                         break;
                 }
                 return false;
@@ -91,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     return new AboutFragment3();
             }
+
             return null;
         }
 
