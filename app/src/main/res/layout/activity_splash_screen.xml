@@ -22,15 +22,16 @@
 
     <ImageView
         android:id="@+id/wap_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="163dp"
+        android:layout_height="158dp"
+        android:contentDescription="@string/wap_logo"
         android:src="@drawable/wap_logo"
-        app:layout_constraintVertical_bias=".1"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/wap_logo" />
+        app:layout_constraintVertical_bias=".3" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/sea_waves_animation"
