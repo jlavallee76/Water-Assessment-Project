@@ -48,6 +48,17 @@ dependencies {
     // Lottie Dependency For Animations
     implementation 'com.airbnb.android:lottie:3.4.1'
 
-    //Map Dependency
+    // Map Dependency
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
+
+    // Liquid Swipe Dependency (Used as our ViewPager to change fragments)
+    // More information @ https://github.com/Cuberto/liquid-swipe-android
+    implementation 'com.cuberto:liquid-swipe:1.0.0'
+    implementation 'com.android.support:design:30.0.0'
+
+    // Liquid Swipe (Cuberto) Dependency is in Kotlin, we need these in order to use it with our Java project
+    implementation "org.jetbrains.kotilin:kotlin-stdlib:1.4.0"
+    implementation 'androidx.come:core:1.3.1'
+    implementation 'androidx.come:core-ktx:1.3.1'
+
 }
