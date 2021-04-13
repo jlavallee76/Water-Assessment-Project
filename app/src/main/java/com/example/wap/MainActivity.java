@@ -38,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Log.d("MH", "Nav item selected.");
+                Intent intent;
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
 
                         break;
                     case R.id.navigation_map:
-                        Log.d("MH", "Map Button Selected");
-                        Intent intent = new Intent(MainActivity.this, MapActivity.class);
+
+                        intent = new Intent(MainActivity.this, MapActivity.class);
                         startActivity(intent);
 
                         break;
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_settings:
+
+                        intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(intent);
 
                         break;
                 }
