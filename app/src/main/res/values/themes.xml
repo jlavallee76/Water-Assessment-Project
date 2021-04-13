@@ -9,8 +9,11 @@
         <item name="colorSecondary">@color/teal_background_accent_dark</item>
         <item name="colorSecondaryVariant">@color/teal_background_accent_light</item>
         <item name="colorOnSecondary">@color/off_black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">false</item>
+
     </style>
 </resources>

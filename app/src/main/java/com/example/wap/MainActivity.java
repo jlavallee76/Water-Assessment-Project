@@ -1,11 +1,16 @@
 package com.example.wap;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -30,18 +35,14 @@ import java.net.URI;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int NUM_PAGES = 3;
-    private ViewPager viewPager;
-    private ScreenSlidePagerAdapter pagerAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Liquid Swipe
-        viewPager = findViewById(R.id.liquid_pager);
-        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.liquid_pager);
+        ScreenSlidePagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         // Bottom Navigation
@@ -54,21 +55,17 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MH", "Nav item selected.");
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-
                         break;
                     case R.id.navigation_map:
                         Log.d("MH", "Map Button Selected");
                         Intent intent = new Intent(MainActivity.this, MapActivity.class);
                         startActivity(intent);
-
                         break;
 
                     case R.id.navigation_search:
-
                         break;
 
                     case R.id.navigation_settings:
-
                         break;
                 }
                 return false;
@@ -76,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-
+    private static class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(@NonNull FragmentManager fm) {
             super(fm);
         }
+
+        private static final int NUM_PAGES = 3;
 
         @NonNull
         @Override
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 case 2:
                     return new AboutFragment3();
             }
-
             return null;
         }
 
