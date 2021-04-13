@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_search:
-
+                        intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.navigation_settings:
