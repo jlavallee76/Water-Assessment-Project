@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.wap.ui.home.SplashScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
