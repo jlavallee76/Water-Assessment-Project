@@ -18,6 +18,8 @@ allprojects {
         google()
         jcenter()
 
+        // Carousel dependency
+        maven { url 'https://jitpack.io' }
         // Map dependency
         maven {
             url 'https://api.mapbox.com/downloads/v2/releases/maven'

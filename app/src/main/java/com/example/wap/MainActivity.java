@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_search:
-                        intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        intent = new Intent(MainActivity.this, CarouselActivity.class);
                         startActivity(intent);
                         break;
 
