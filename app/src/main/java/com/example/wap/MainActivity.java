@@ -22,6 +22,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
 import com.mapbox.mapboxsdk.location.modes.CameraMode;
 import com.mapbox.mapboxsdk.location.modes.RenderMode;
 import com.mapbox.mapboxsdk.maps.Style;
+import com.onesignal.OneSignal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,11 +34,21 @@ import androidx.viewpager.widget.ViewPager;
 import java.net.URI;
 
 public class MainActivity extends AppCompatActivity {
+    // One Signal Key
+    private static final String ONESIGNAL_APP_ID = "06f18584-4cee-411f-ae89-ca265e479d13";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // One Signal
+        // Enable verbose OneSignal logging to debug issues if needed.
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+
+        // OneSignal Initialization
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ONESIGNAL_APP_ID);
 
         // Liquid Swipe
         ViewPager viewPager = findViewById(R.id.liquid_pager);

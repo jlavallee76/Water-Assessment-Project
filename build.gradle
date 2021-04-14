@@ -2,10 +2,17 @@
 buildscript {
     repositories {
         google()
+        // One Signal Plugin
+        mavenCentral()
+        gradlePluginPortal()
+
         jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
+
+        // One Signal Dependency
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.10, 0.99.99]'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,6 +23,9 @@ buildscript {
 allprojects {
     repositories {
         google()
+        // One Signal Repository
+        mavenCentral()
+
         jcenter()
 
         // Carousel dependency
