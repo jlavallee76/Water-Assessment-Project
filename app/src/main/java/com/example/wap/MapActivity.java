@@ -1,7 +1,9 @@
 package com.example.wap;
 
 import android.graphics.BitmapFactory;
+import android.graphics.PointF;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.example.wap.R;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 
+import com.mapbox.geojson.BoundingBox;
 import com.mapbox.geojson.Point;
 
 import com.mapbox.mapboxsdk.Mapbox;
@@ -30,6 +33,7 @@ import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -110,7 +114,6 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
 
                             // Hide the hovering red hovering ImageView marker
                             hoveringMarker.setVisibility(View.INVISIBLE);
-
                             // Transform the appearance of the button to become the cancel button
                             selectLocationButton.setBackgroundColor(
                                     ContextCompat.getColor(MapActivity.this, R.color.colorAccent));
@@ -121,7 +124,25 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                                 GeoJsonSource source = style.getSourceAs("dropped-marker-source-id");
                                 if (source != null) {
                                     source.setGeoJson(Point.fromLngLat(mapTargetLatLng.getLongitude(), mapTargetLatLng.getLatitude()));
-                                    Toast.makeText(MapActivity.this, mapTargetLatLng.getLongitude() + " " + mapTargetLatLng.getLatitude(), Toast.LENGTH_SHORT).show();
+
+                                    // Create bbox from single point. Adding .015 to the value.
+                                    double lng = mapTargetLatLng.getLongitude();
+                                    double lat = mapTargetLatLng.getLatitude();
+
+                                    //Value modifiers.
+                                    double northEastMod = .15;
+                                    double southWestMod = -.15;
+
+                                    //Generated 4 points of bbox
+                                    double north = lat + northEastMod;
+                                    double east =  lng + northEastMod;
+                                    double south = lng + southWestMod;
+                                    double west = lat + southWestMod;
+
+                                    Log.d("MH", north + "," + east + "," + south + "," + west);
+                                    Log.d("MH","Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude() );
+
+                                    Toast.makeText(MapActivity.this, north + "," + east + "," + south + "," + west, Toast.LENGTH_SHORT).show();
                                 }
                                 droppedMarkerLayer = style.getLayer(DROPPED_MARKER_LAYER_ID);
                                 if (droppedMarkerLayer != null) {
@@ -131,8 +152,6 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
 
                             // Use the map camera target's coordinates to make a reverse geocoding search
 //                            reverseGeocode(Point.fromLngLat(mapTargetLatLng.getLongitude(), mapTargetLatLng.getLatitude()));
-
-
 
                         } else {
 
