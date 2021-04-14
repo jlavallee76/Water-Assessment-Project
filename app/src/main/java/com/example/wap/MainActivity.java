@@ -29,9 +29,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import java.net.URI;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     // One Signal Key
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         // OneSignal Initialization
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
+        OneSignal.disablePush(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
@@ -74,10 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.navigation_map:
-
-                        intent = new Intent(MainActivity.this, MapActivity.class);
-                        startActivity(intent);
-
+                        switchToMapFragment();
                         break;
 
                     case R.id.navigation_search:
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                 }
-                return false;
+                return true;
             }
         });
     }
@@ -123,6 +123,21 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
             return NUM_PAGES;
         }
+    }
+
+    public void switchToMapFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.container, new MapFragment()).commit();
+    }
+
+    public void switchToCarouselFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.carousel, new MapFragment()).commit();
+    }
+
+    public void switchToSettingsFragment() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.settings, new MapFragment()).commit();
     }
 
 }

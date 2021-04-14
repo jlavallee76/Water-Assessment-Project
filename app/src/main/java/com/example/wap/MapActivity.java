@@ -69,7 +69,7 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
 
         // Mapbox access token is configured here. This needs to be called either in your application
         // object or in the same activity which contains the mapview.
-        Mapbox.getInstance(this, "pk.eyJ1IjoibnN0YWxnaWMiLCJhIjoiY2trZndsZWV1MDlnYTJ2azJmOHlkdzZldiJ9.3Y1Gl-AFgXzgRSCYLhRMdA");
+        // Mapbox.getInstance(this, "pk.eyJ1IjoibnN0YWxnaWMiLCJhIjoiY2trZndsZWV1MDlnYTJ2azJmOHlkdzZldiJ9.3Y1Gl-AFgXzgRSCYLhRMdA");
 
         // This contains the MapView in XML and needs to be called after the access token is configured.
         setContentView(R.layout.activity_lab_location_picker);
@@ -106,7 +106,7 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                 initDroppedMarker(style);
 
                 // Button for user to drop marker or to pick marker back up.
-                selectLocationButton = findViewById(R.id.select_location_button);
+                selectLocationButton = findViewById(R.id.fab);
                 selectLocationButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

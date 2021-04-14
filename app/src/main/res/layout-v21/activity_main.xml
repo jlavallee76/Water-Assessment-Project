@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     >
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"/>
+
     <com.cuberto.liquid_swipe.LiquidPager
         android:id="@+id/liquid_pager"
         android:layout_width="match_parent"
@@ -20,6 +25,7 @@
         app:fabCradleMargin="@dimen/activity_horizontal_margin"
         app:fabCradleVerticalOffset="@dimen/cardview_compat_inset_shadow"
         app:fabCradleRoundedCornerRadius="@dimen/activity_horizontal_margin"
+        app:elevation="2dp"
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
