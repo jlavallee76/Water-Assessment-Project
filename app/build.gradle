@@ -76,4 +76,7 @@ dependencies {
 
     // One Signal Dependency
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
+    // Volley Dependency To Preform Sentinel API Requests
+    implementation 'com.android.volley:volley:1.2.0'
 }

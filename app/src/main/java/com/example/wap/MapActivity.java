@@ -12,6 +12,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.wap.R;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
@@ -146,6 +152,17 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                                     Log.d("MH","Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude() );
 
                                     Toast.makeText(MapActivity.this, north + "," + east + "," + west + "," + south , Toast.LENGTH_SHORT).show();
+
+                                    // Reference for getting image with volly
+//                                  String sentinelReturn = volleySentinelRequest(
+//                                            "50.47220779685441,-96.72728086864906,50.172207796854416,-97.02728086864907",
+//                                            "TRUE_COLOR",
+//                                            "20",
+//                                            "320", "320",
+//                                            "image/jpeg",
+//                                            "2018-03-29", "2021-04-14",
+//                                            "EPSG:4326"
+//                                  );
                                 }
                                 droppedMarkerLayer = style.getLayer(DROPPED_MARKER_LAYER_ID);
                                 if (droppedMarkerLayer != null) {
@@ -280,5 +297,42 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
             permissionsManager = new PermissionsManager(this);
             permissionsManager.requestLocationPermissions(this);
         }
+    }
+
+    // Perform Sentinel API Request
+    public String volleySentinelRequest(
+            String bbox, String layer, String maxCC, String width, String height, String format, String startDate, String endDate, String CRS){
+
+        String returnURL;
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://services.sentinel-hub.com/ogc/wms/f7db87a9-d00e-41de-a2af-d618d367eed8?REQUEST=GetMap&BBOX=" +
+                bbox +
+                "&LAYERS=" + layer +
+                "&MAXCC=" + maxCC +
+                "&WIDTH=" + width + "&HEIGHT=" + height +
+                "&FORMAT=" + format +
+                "&TIME=" + startDate + "/" + endDate +
+                "&CRS=" + CRS;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Option to manipulate response
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Option to display error message
+            }
+        });
+
+        queue.add(stringRequest);
+
+        return url;
     }
 }
