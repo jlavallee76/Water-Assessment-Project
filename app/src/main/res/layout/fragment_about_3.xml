@@ -86,7 +86,10 @@
         android:layout_width="348dp"
         android:layout_height="193dp"
         android:layout_marginBottom="4dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis accumsan nulla. Sed ac condimentum tortor. Cras faucibus felis ac metus ornare lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse sollicitudin purus ac consectetur pellentesque. Donec scelerisque vitae lorem eget sollicitudin. Aliquam velit arcu, faucibus id dolor quis, pharetra pellentesque mi."
+        android:text="The AquaHacking Challenge is an innovative tech competition that engages Canadians to develop entrepreneurial skills and creating solutions to freshwater issues.
+\n \nWe are driven by disrupting the status quo with innovative ideas, engaging young entrepreneurs with a can-do mindset, and creating opportunities to collaborate for the development of solutions.
+
+"
         android:textColor="@color/ah_accent"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

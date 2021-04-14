@@ -86,7 +86,7 @@
         android:layout_width="348dp"
         android:layout_height="193dp"
         android:layout_marginBottom="4dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis accumsan nulla. Sed ac condimentum tortor. Cras faucibus felis ac metus ornare lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse sollicitudin purus ac consectetur pellentesque. Donec scelerisque vitae lorem eget sollicitudin. Aliquam velit arcu, faucibus id dolor quis, pharetra pellentesque mi."
+        android:text="Students study native application development for the Android platform. The first half of the course builds the foundation with assignments covering topics including user-interface creation, event-driven programming, data persistence, web connectivity, and location-based services.\n \nIn the second half of the course, students create smartphone apps of their own design."
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
