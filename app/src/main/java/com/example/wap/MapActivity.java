@@ -20,6 +20,7 @@ import com.mapbox.geojson.BoundingBox;
 import com.mapbox.geojson.Point;
 
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
@@ -86,6 +87,8 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
             @Override
             public void onStyleLoaded(@NonNull final Style style) {
                 enableLocationPlugin(style);
+                CameraPosition position = new CameraPosition.Builder().zoom(10).build();
+
 
 
                 // When user is still picking a location, we hover a marker above the mapboxMap in the center.
@@ -139,10 +142,10 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                                     double south = lng + southWestMod;
                                     double west = lat + southWestMod;
 
-                                    Log.d("MH", north + "," + east + "," + south + "," + west);
+                                    Log.d("MH", north + "," + east + "," + west + "," + south);
                                     Log.d("MH","Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude() );
 
-                                    Toast.makeText(MapActivity.this, north + "," + east + "," + south + "," + west, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MapActivity.this, north + "," + east + "," + west + "," + south , Toast.LENGTH_SHORT).show();
                                 }
                                 droppedMarkerLayer = style.getLayer(DROPPED_MARKER_LAYER_ID);
                                 if (droppedMarkerLayer != null) {
