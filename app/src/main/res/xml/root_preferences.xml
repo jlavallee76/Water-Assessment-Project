@@ -1,5 +1,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#414243">
+
+    <!--    These Two Categories are here only for padding.-->
+    <PreferenceCategory
+        android:title=""
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false" />
+    <PreferenceCategory
+        android:title=""
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false" />
+
 
     <PreferenceCategory app:title="@string/map_header">
 
@@ -19,5 +33,6 @@
             app:title="@string/push_notif" />
 
     </PreferenceCategory>
+
 
 </PreferenceScreen>
