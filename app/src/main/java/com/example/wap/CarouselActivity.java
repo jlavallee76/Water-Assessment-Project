@@ -53,7 +53,7 @@ public class CarouselActivity extends AppCompatActivity {
         for(int i = 0; i < 10; i++){
             list.add(
                     new CarouselItem(
-                            "https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?w=1080",
+                            "https://services.sentinel-hub.com/ogc/wms/f7db87a9-d00e-41de-a2af-d618d367eed8?REQUEST=GetMap&BBOX=50.47220779685441,-96.72728086864906,50.172207796854416,-97.02728086864907&LAYERS=TRUE_COLOR&MAXCC=50&WIDTH=640&HEIGHT=640&FORMAT=image/jpeg&TIME=2018-03-29/2020-05-29&CRS=EPSG:4326",
                             "Photo by Aaron Wu on Unsplash"
                     )
             );

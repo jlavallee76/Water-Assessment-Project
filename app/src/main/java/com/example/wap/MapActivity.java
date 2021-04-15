@@ -40,7 +40,9 @@ import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -300,10 +302,38 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
     }
 
     // Perform Sentinel API Request
-    public String volleySentinelRequest(
-            String bbox, String layer, String maxCC, String width, String height, String format, String startDate, String endDate, String CRS){
+    public String volleySentinelRequest(String bbox){
 
         String returnURL;
+
+        String layer = "TRUE_COLOR";
+        String maxCC = "50";
+        String format = "image/jpeg";
+        String CRS = "EPSG:4326";
+
+        // Picture Width and Height.
+        String width;
+        String height;
+
+        String lowRes = "320";
+        String highRes = "640";
+
+        width = lowRes;
+        height = lowRes;
+
+        // Settings check for resolution.
+        if(true){
+            width = highRes;
+            height = highRes;
+        }
+
+        // Date range.
+        String startDate = "2018-03-29";
+
+        // End date of todays date.
+        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");//dd/MM/yyyy
+        Date now = new Date();
+        String endDate = sdfDate.format(now);
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
