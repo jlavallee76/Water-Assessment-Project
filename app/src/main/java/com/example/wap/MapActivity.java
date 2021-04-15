@@ -156,17 +156,6 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                                     Log.d("MH","Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude() );
 
                                     Toast.makeText(MapActivity.this, north + "," + east + "," + west + "," + south , Toast.LENGTH_SHORT).show();
-
-                                    // Reference for getting image with volly
-//                                  String sentinelReturn = volleySentinelRequest(
-//                                            "50.47220779685441,-96.72728086864906,50.172207796854416,-97.02728086864907",
-//                                            "TRUE_COLOR",
-//                                            "20",
-//                                            "320", "320",
-//                                            "image/jpeg",
-//                                            "2018-03-29", "2021-04-14",
-//                                            "EPSG:4326"
-//                                  );
                                 }
                                 droppedMarkerLayer = style.getLayer(DROPPED_MARKER_LAYER_ID);
                                 if (droppedMarkerLayer != null) {

@@ -80,4 +80,11 @@ dependencies {
 
     // Volley Dependency To Preform Sentinel API Requests
     implementation 'com.android.volley:volley:1.2.0'
+
+    // Room Dependency To Preform Database Actions
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
 }
