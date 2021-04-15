@@ -203,7 +203,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                             ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
                     // Sets FAB icon to a plus here
-                    selectLocationButton.setImageResource(R.drawable.ic_baseline_horizontal_rule_24);
+                    selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
                     // Show the SymbolLayer icon to represent the selected map location
                     if (style.getLayer(DROPPED_MARKER_LAYER_ID) != null) {
@@ -229,9 +229,6 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 
                             Log.d("MH", north + "," + east + "," + west + "," + south);
                             Log.d("MH", "Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude());
-
-                            Toast.makeText(getActivity(), north + "," + east + "," + west + "," + south, Toast.LENGTH_SHORT).show();
-
 
                             // Add image url to local database.
                             AppDatabase db = Room.databaseBuilder(getActivity(),
@@ -259,7 +256,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                     selectLocationButton.setBackgroundColor(
                             ContextCompat.getColor(getActivity(), R.color.colorPrimary));
                     // Lets get the plus on the FAB to a minus here
-                    selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
+                    selectLocationButton.setImageResource(R.drawable.ic_baseline_horizontal_rule_24);
 
                     // Show the red hovering ImageView marker
                     hoveringMarker.setVisibility(View.VISIBLE);
