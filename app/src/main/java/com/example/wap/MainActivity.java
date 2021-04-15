@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
 
         // Bottom Navigation
+        FloatingActionButton fab = findViewById(R.id.fab);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
@@ -64,18 +66,20 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    fab.setVisibility(View.GONE);
                     selectedFragment = new HomeFragment();
                     break;
                 case R.id.navigation_map:
-//                    startActivity(new Intent(MainActivity.this, MapActivity.class));
-//                    break;
+                    fab.setVisibility(View.VISIBLE);
                     selectedFragment = new MapFragment();
                     break;
                 case R.id.navigation_search:
+                    fab.setVisibility(View.GONE);
                     selectedFragment = new CarouselFragment();
                     break;
 
                 case R.id.navigation_settings:
+                    fab.setVisibility(View.GONE);
                     selectedFragment = new SettingsFragment();
                     break;
             }
