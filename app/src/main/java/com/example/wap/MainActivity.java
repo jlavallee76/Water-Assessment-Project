@@ -66,10 +66,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     selectedFragment = new HomeFragment();
                     break;
-//                case R.id.navigation_map:
-//                    intent = new Intent(MainActivity.this, MapActivity.class);
-//                    startActivity(intent);
+                case R.id.navigation_map:
+//                    startActivity(new Intent(MainActivity.this, MapActivity.class));
 //                    break;
+                    selectedFragment = new MapFragment();
+                    break;
                 case R.id.navigation_search:
                     selectedFragment = new CarouselFragment();
                     break;
