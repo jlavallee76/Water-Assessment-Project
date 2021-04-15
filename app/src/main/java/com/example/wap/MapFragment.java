@@ -216,8 +216,8 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                             double lat = mapTargetLatLng.getLatitude();
 
                             //Value modifiers.
-                            double northEastMod = .15;
-                            double southWestMod = -.15;
+                            double northEastMod = .10;
+                            double southWestMod = -.10;
 
                             //Generated 4 points of bbox
                             double north = lat + northEastMod;

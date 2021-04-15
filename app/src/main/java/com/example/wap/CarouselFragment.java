@@ -109,45 +109,11 @@ public class CarouselFragment extends Fragment {
 
         List<ImageLink> imageLinks = imageLinkDao.getImageLinks();
 
-
-//        list.add(
-//                new CarouselItem(
-//                        imageLinks.get(1).getLink(),
-//                        "Photo by Aaron Wu on Unsplash"
-//                )
-//        );
-//
-//        list.add(
-//                new CarouselItem(
-//                        imageLinks.get(3).getLink(),
-//                        "Photo by Aaron Wu on Unsplash"
-//                )
-//        );
-//
-//        list.add(
-//                new CarouselItem(
-//                        imageLinks.get(4).getLink(),
-//                        "Photo by Aaron Wu on Unsplash"
-//                )
-//        );
-//
-//        list.add(
-//                new CarouselItem(
-//                        imageLinks.get(5).getLink(),
-//                        "Photo by Aaron Wu on Unsplash"
-//                )
-//        );
-//
-//        list.add(
-//                new CarouselItem(
-//                        imageLinks.get(5).getLink(),
-//                        "Photo by Aaron Wu on Unsplash"
-//                )
-//        );
-
-
-
-
+        for(int i = 0; i < imageLinks.size(); i++) {
+            String url = imageLinks.get(i).getLink();
+            CarouselItem image = new CarouselItem(url, "Date");
+            list.add(image);
+        }
         carousel.addData(list);
         // Inflate the layout for this fragment
         return carouselView;
