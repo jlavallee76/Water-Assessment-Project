@@ -50,80 +50,41 @@ public class MainActivity extends AppCompatActivity {
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+        Window w = getWindow(); // in Activity's onCreate() for instance
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        // Liquid Swipe
-        ViewPager viewPager = findViewById(R.id.liquid_pager);
-        ScreenSlidePagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+        // Set Home to Settings Fragment (This needs to get changed to the liquid swipe)
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
 
         // Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Log.d("MH", "Nav item selected.");
-                Intent intent;
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    selectedFragment = new HomeFragment();
+                    break;
+//                case R.id.navigation_map:
+//                    intent = new Intent(MainActivity.this, MapActivity.class);
+//                    startActivity(intent);
+//                    break;
+                case R.id.navigation_search:
+                    selectedFragment = new CarouselFragment();
+                    break;
 
-                        break;
-                    case R.id.navigation_map:
-
-                        intent = new Intent(MainActivity.this, MapActivity.class);
-                        startActivity(intent);
-
-                        break;
-
-                    case R.id.navigation_search:
-                        intent = new Intent(MainActivity.this, CarouselActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.navigation_settings:
-
-                        intent = new Intent(MainActivity.this, SettingsActivity.class);
-                        startActivity(intent);
-
-                        break;
-                }
-                return false;
+                case R.id.navigation_settings:
+                    selectedFragment = new SettingsFragment();
+                    break;
             }
+
+            // Begin Transaction
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_layout, selectedFragment).commit();
+
+            return true;
         });
     }
-
-    private static class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-        public ScreenSlidePagerAdapter(@NonNull FragmentManager fm) {
-            super(fm);
-        }
-
-        private static final int NUM_PAGES = 3;
-
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            switch(position) {
-                case 0:
-                    return new AboutFragment1();
-                case 1:
-                    return new AboutFragment2();
-                case 2:
-                    return new AboutFragment3();
-            }
-
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
-    }
-
 }
 
