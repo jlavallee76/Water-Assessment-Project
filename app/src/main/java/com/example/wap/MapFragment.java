@@ -291,9 +291,9 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
     public String volleySentinelRequest(String bbox) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Boolean isHighRes;
+        Boolean isHighRes, isArgi;
 
-
+        isArgi = prefs.getBoolean("image_layer", false);
         isHighRes = prefs.getBoolean("image_res", false);
 
         String returnURL;
@@ -317,6 +317,9 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
         if (isHighRes) {
             width = highRes;
             height = highRes;
+        }
+        if(isArgi){
+            layer = "AGRICULTURE";
         }
 
         // Date range.

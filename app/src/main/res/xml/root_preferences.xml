@@ -19,6 +19,9 @@
     <SwitchPreferenceCompat
         app:key="image_res"
         app:title="@string/res_header" />
+    <SwitchPreferenceCompat
+        app:key="image_layer"
+        app:title="@string/layers" />
 
 
     <PreferenceCategory app:title="@string/update_header">
