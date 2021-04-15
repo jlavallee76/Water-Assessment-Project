@@ -69,7 +69,6 @@ public class HomeFragment extends Fragment {
         ScreenSlidePagerAdapter pagerAdapter = new HomeFragment.ScreenSlidePagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
-
         // Inflate the layout for this fragment
         return homeView;
     }

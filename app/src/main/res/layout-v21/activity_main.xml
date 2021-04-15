@@ -11,13 +11,6 @@
         android:layout_height="match_parent"
         android:id="@+id/fragment_layout" />
 
-<!--    <com.cuberto.liquid_swipe.LiquidPager-->
-<!--        android:id="@+id/liquid_pager"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
