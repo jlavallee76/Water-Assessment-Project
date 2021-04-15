@@ -1,5 +1,6 @@
 package com.example.wap;
 
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -288,6 +290,12 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
     // Perform Sentinel API Request
     public String volleySentinelRequest(String bbox) {
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        Boolean isHighRes;
+
+
+        isHighRes = prefs.getBoolean("image_res", false);
+
         String returnURL;
 
         String layer = "TRUE_COLOR";
@@ -306,7 +314,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
         height = lowRes;
 
         // Settings check for resolution.
-        if (true) {
+        if (isHighRes) {
             width = highRes;
             height = highRes;
         }
