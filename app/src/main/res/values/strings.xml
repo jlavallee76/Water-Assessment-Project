@@ -29,7 +29,7 @@
     <!-- Preference Titles -->
     <string name="map_header">Map Preferences</string>
     <string name="update_header">Update</string>
-
+    <string name="res_header">High Image Resolution</string>
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>

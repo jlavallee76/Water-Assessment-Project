@@ -1,8 +1,10 @@
 package com.example.wap;
 
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -321,8 +323,13 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
         width = lowRes;
         height = lowRes;
 
+        // Settings implementation.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isHighRes = prefs.getBoolean("image_res", false);
+
+
         // Settings check for resolution.
-        if(true){
+        if(isHighRes){
             width = highRes;
             height = highRes;
         }
