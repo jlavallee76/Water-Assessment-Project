@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.jaeger.library.StatusBarUtil;
 
-public class AboutFragment1 extends Fragment {
+public class AboutFragment1 extends HomeFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

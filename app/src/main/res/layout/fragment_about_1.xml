@@ -38,16 +38,16 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/skip"
+        android:layout_width="15dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="30dp"
+        android:text=""
+        android:textColor="@color/off_white"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/off_white"
-        app:layout_constraintHorizontal_bias="1"
-        android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
