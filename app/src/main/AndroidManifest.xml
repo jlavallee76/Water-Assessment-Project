@@ -15,7 +15,6 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".MapActivity" />
         <activity android:name=".ui.home.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
