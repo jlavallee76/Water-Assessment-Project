@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Bottom Navigation
         FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+        ImageView navLogo = findViewById(R.id.nav_logo);
+        navLogo.setVisibility(View.VISIBLE);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);
@@ -66,20 +70,24 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fab.setVisibility(View.GONE);
+                    fab.setVisibility(View.INVISIBLE);
+                    navLogo.setVisibility(View.VISIBLE);
                     selectedFragment = new HomeFragment();
                     break;
                 case R.id.navigation_map:
                     fab.setVisibility(View.VISIBLE);
+                    navLogo.setVisibility(View.GONE);
                     selectedFragment = new MapFragment();
                     break;
                 case R.id.navigation_search:
                     fab.setVisibility(View.GONE);
+                    navLogo.setVisibility(View.VISIBLE);
                     selectedFragment = new CarouselFragment();
                     break;
 
                 case R.id.navigation_settings:
                     fab.setVisibility(View.GONE);
+                    navLogo.setVisibility(View.VISIBLE);
                     selectedFragment = new SettingsFragment();
                     break;
             }

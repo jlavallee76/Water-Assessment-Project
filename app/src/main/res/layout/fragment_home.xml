@@ -3,16 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarouselFragment"
-    android:background="@color/rrc_red">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment"
-        android:textSize="52sp"
-        />
+    tools:context=".CarouselFragment">
 
     <com.cuberto.liquid_swipe.LiquidPager
         android:id="@+id/liquid_pager"
