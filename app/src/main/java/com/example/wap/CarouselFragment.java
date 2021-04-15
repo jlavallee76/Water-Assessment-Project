@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,15 +100,53 @@ public class CarouselFragment extends Fragment {
         carousel.setAutoPlayDelay(3000); // Milliseconds
 
         List<CarouselItem> list = new ArrayList<>();
-        for(int i = 0; i < 10; i++){
-            list.add(
-                    new CarouselItem(
-                            "https://services.sentinel-hub.com/ogc/wms/f7db87a9-d00e-41de-a2af-d618d367eed8?REQUEST=GetMap&BBOX=50.47220779685441,-96.72728086864906,50.172207796854416,-97.02728086864907&LAYERS=TRUE_COLOR&MAXCC=50&WIDTH=640&HEIGHT=640&FORMAT=image/jpeg&TIME=2018-03-29/2020-05-29&CRS=EPSG:4326",
-                            "Photo by Aaron Wu on Unsplash"
-                    )
-            );
 
-        }
+        //Get from database object.
+        AppDatabase db = Room.databaseBuilder(getActivity(),
+                AppDatabase.class, "image-links").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+
+        ImageLinkDao imageLinkDao = db.imageLinkDao();
+
+        List<ImageLink> imageLinks = imageLinkDao.getImageLinks();
+
+
+//        list.add(
+//                new CarouselItem(
+//                        imageLinks.get(1).getLink(),
+//                        "Photo by Aaron Wu on Unsplash"
+//                )
+//        );
+//
+//        list.add(
+//                new CarouselItem(
+//                        imageLinks.get(3).getLink(),
+//                        "Photo by Aaron Wu on Unsplash"
+//                )
+//        );
+//
+//        list.add(
+//                new CarouselItem(
+//                        imageLinks.get(4).getLink(),
+//                        "Photo by Aaron Wu on Unsplash"
+//                )
+//        );
+//
+//        list.add(
+//                new CarouselItem(
+//                        imageLinks.get(5).getLink(),
+//                        "Photo by Aaron Wu on Unsplash"
+//                )
+//        );
+//
+//        list.add(
+//                new CarouselItem(
+//                        imageLinks.get(5).getLink(),
+//                        "Photo by Aaron Wu on Unsplash"
+//                )
+//        );
+
+
+
 
         carousel.addData(list);
         // Inflate the layout for this fragment

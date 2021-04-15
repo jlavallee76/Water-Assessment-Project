@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.util.Log;
 import android.view.Gravity;
@@ -145,7 +146,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
         }
     }
 
-    @SuppressWarnings( {"MissingPermission"})
+    @SuppressWarnings({"MissingPermission"})
     private void enableLocationPlugin(@NonNull Style loadedMapStyle) {
         // Check if permissions are enabled and if not request
         if (PermissionsManager.areLocationPermissionsGranted(getActivity())) {
@@ -220,25 +221,28 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 
                             //Generated 4 points of bbox
                             double north = lat + northEastMod;
-                            double east =  lng + northEastMod;
+                            double east = lng + northEastMod;
                             double south = lng + southWestMod;
                             double west = lat + southWestMod;
 
+                            String bbox = north + "," + east + "," + west + "," + south;
+
                             Log.d("MH", north + "," + east + "," + west + "," + south);
-                            Log.d("MH","Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude() );
+                            Log.d("MH", "Lng: " + mapTargetLatLng.getLongitude() + " Lat: " + mapTargetLatLng.getLatitude());
 
-                            Toast.makeText(getActivity(), north + "," + east + "," + west + "," + south , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), north + "," + east + "," + west + "," + south, Toast.LENGTH_SHORT).show();
 
-                            // Reference for getting image with volly
-//                                  String sentinelReturn = volleySentinelRequest(
-//                                            "50.47220779685441,-96.72728086864906,50.172207796854416,-97.02728086864907",
-//                                            "TRUE_COLOR",
-//                                            "20",
-//                                            "320", "320",
-//                                            "image/jpeg",
-//                                            "2018-03-29", "2021-04-14",
-//                                            "EPSG:4326"
-//                                  );
+
+                            // Add image url to local database.
+                            AppDatabase db = Room.databaseBuilder(getActivity(),
+                                    AppDatabase.class, "image-links").fallbackToDestructiveMigration().allowMainThreadQueries().build();
+
+                            ImageLinkDao imageLinkDao = db.imageLinkDao();
+                            String url = volleySentinelRequest(bbox);
+
+                            ImageLink imageLink = new ImageLink(url);
+                            imageLinkDao.addImageLink(imageLink);
+
                         }
                         droppedMarkerLayer = style.getLayer(DROPPED_MARKER_LAYER_ID);
                         if (droppedMarkerLayer != null) {
@@ -267,7 +271,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                     }
                 }
             });
-    });
+        });
     }
 
     private void initDroppedMarker(@NonNull Style loadedMapStyle) {
@@ -285,7 +289,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
     }
 
     // Perform Sentinel API Request
-    public String volleySentinelRequest(String bbox){
+    public String volleySentinelRequest(String bbox) {
 
         String returnURL;
 
@@ -305,7 +309,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
         height = lowRes;
 
         // Settings check for resolution.
-        if(true){
+        if (true) {
             width = highRes;
             height = highRes;
         }
@@ -335,8 +339,8 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                     // Option to manipulate response
                 }, error -> {
 
-                    // Option to display error message
-                });
+            // Option to display error message
+        });
 
         queue.add(stringRequest);
 
