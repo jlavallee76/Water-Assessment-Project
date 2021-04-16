@@ -45,9 +45,9 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_baseline_add_24"
         app:layout_anchor="@id/bottomAppBar"
         android:contentDescription="@string/water_drop"
-        android:backgroundTint="@color/blue_logo_main" />
+        android:backgroundTint="@color/blue_logo_main"
+        app:rippleColor="@color/ah_primary"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

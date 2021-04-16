@@ -119,7 +119,8 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 
         // This contains the MapView in XML and needs to be called after the access token is configured.
         View view = inflater.inflate(R.layout.fragment_map, container, false);
-
+        selectLocationButton = getActivity().findViewById(R.id.fab);
+        selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
         // Initialize the Mapbox Map view
         mapView = view.findViewById(R.id.mapView);
@@ -191,7 +192,6 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
             initDroppedMarker(style);
 
             // Button for user to drop marker or to pick marker back up.
-            selectLocationButton = getActivity().findViewById(R.id.fab);
             selectLocationButton.setOnClickListener(view -> {
                 if (hoveringMarker.getVisibility() == View.VISIBLE) {
 
@@ -203,9 +203,6 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                     // Transform the appearance of the button to become the cancel button
                     selectLocationButton.setBackgroundColor(
                             ContextCompat.getColor(getActivity(), R.color.colorAccent));
-
-                    // Sets FAB icon to a plus here
-                    selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
                     // Show the SymbolLayer icon to represent the selected map location
                     if (style.getLayer(DROPPED_MARKER_LAYER_ID) != null) {
@@ -247,6 +244,8 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                         if (droppedMarkerLayer != null) {
                             droppedMarkerLayer.setProperties(visibility(VISIBLE));
                         }
+
+                        selectLocationButton.setImageResource(R.drawable.ic_baseline_horizontal_rule_24);
                     }
 
                     // Use the map camera target's coordinates to make a reverse geocoding search
@@ -258,7 +257,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                     selectLocationButton.setBackgroundColor(
                             ContextCompat.getColor(getActivity(), R.color.colorPrimary));
                     // Lets get the plus on the FAB to a minus here
-                    selectLocationButton.setImageResource(R.drawable.ic_baseline_horizontal_rule_24);
+                    selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
                     // Show the red hovering ImageView marker
                     hoveringMarker.setVisibility(View.VISIBLE);
