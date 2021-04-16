@@ -86,13 +86,12 @@ public class CarouselFragment extends Fragment {
         carousel.setBottomShadowAlpha(0.6f); // 0 to 1, 1 means 100%
         carousel.setBottomShadowHeight(Utils.dpToPx(64, context)); // px value of dp
         carousel.setShowCaption(true);
-        carousel.setCaptionMargin(Utils.dpToPx(16, context)); // px value of dp
+        carousel.setCaptionMargin(Utils.dpToPx(5, context)); // px value of dp
         carousel.setCaptionTextSize(Utils.spToPx(16, context)); // px value of sp
-        carousel.setIndicatorMargin(Utils.dpToPx(0, context)); // px value of dp
+        carousel.setIndicatorMargin(Utils.dpToPx(110, context)); // px value of dp
         carousel.setShowNavigationButtons(true);
         carousel.setImageScaleType(ImageView.ScaleType.CENTER);
-        carousel.setCarouselBackground(new ColorDrawable(Color.parseColor("#05AFF2")));
-        carousel.setCarouselType(CarouselType.SHOWCASE);
+        carousel.setCarouselBackground(new ColorDrawable(Color.parseColor("#0D0D0D")));
         carousel.setScaleOnScroll(true);
         carousel.setScalingFactor(.15f);
         carousel.setAutoWidthFixing(true);

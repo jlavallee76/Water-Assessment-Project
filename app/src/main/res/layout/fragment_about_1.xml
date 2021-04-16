@@ -87,7 +87,7 @@
         android:layout_width="353dp"
         android:layout_height="251dp"
         android:layout_marginBottom="4dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis accumsan nulla. Sed ac condimentum tortor. Cras faucibus felis ac metus ornare lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse sollicitudin purus ac consectetur pellentesque. Donec scelerisque vitae lorem eget sollicitudin. Aliquam velit arcu, faucibus id dolor quis, pharetra pellentesque mi. Curabitur consequat nibh vel felis sollicitudin placerat. Integer placerat gravida fringilla. Suspendisse varius rhoncus quam, quis ullamcorper turpis laoreet dictum."
+        android:text="The Water Assessment Project was developed at Red River College by Jeremie Pedden, Josh Lavallee and Mike Huff in order to provide a quick and accurate way for water conservationists to evaluate bodies of water using satellite imaging.\n\nThe use of satellite imagery to measure water quality conditions in lakes and other surface waters has made tremendous advances in the last 20 years, and our group hopes to contribute to these efforts through a simple mobile application."
         android:textColor="@color/blue_background_accent_med"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

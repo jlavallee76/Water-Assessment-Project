@@ -247,6 +247,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
                             droppedMarkerLayer.setProperties(visibility(VISIBLE));
                         }
 
+                        // FAB Icon To Minus
                         selectLocationButton.setImageResource(R.drawable.ic_baseline_horizontal_rule_24);
                     }
 
@@ -254,7 +255,7 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 //                            reverseGeocode(Point.fromLngLat(mapTargetLatLng.getLongitude(), mapTargetLatLng.getLatitude()));
 
                 } else {
-                    // Lets get the plus on the FAB to a minus here
+                    // FAB Icon To Plus
                     selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
                     // Show the red hovering ImageView marker

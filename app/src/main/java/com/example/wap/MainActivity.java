@@ -68,16 +68,13 @@ public class MainActivity extends AppCompatActivity {
         ImageView navLogo = findViewById(R.id.nav_logo);
         navLogo.setVisibility(View.VISIBLE);
 
-        navLogo.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Uri uriUrl = Uri.parse("https://aquahacking.com/en/");
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-                return true;
-            }
+        // Logo Easter Egg, A Long Click Takes You To Aqua Hacking In Browser
+        navLogo.setOnLongClickListener(v -> {
+            Uri uriUrl = Uri.parse("https://aquahacking.com/en/");
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
+            return true;
         });
-
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
