@@ -18,9 +18,13 @@ public interface ImageLinkDao {
     @Query("select * from image_links")
     public List<ImageLink> getImageLinks();
 
+    @Query("DELETE FROM image_links")
+    public void nukeDatabase();
+
     @Delete
     public void deleteImageLink(ImageLink imageLink);
 
     @Update
     public void updateImageLink(ImageLink imageLink);
+
 }
