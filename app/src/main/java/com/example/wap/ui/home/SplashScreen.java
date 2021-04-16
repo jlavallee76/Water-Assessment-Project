@@ -37,9 +37,9 @@ public class SplashScreen extends AppCompatActivity {
         splashBackground = findViewById(R.id.splash_bg);
         lottieAnimationView = findViewById(R.id.sea_waves_animation);
 
-        splashBackground.animate().setDuration(1000).setStartDelay(4000);
-        logo.animate().setDuration(1000).setStartDelay(4000);
-        lottieAnimationView.animate().setDuration(1000).setStartDelay(4000);
+        splashBackground.animate().setDuration(2000).setStartDelay(4000);
+        lottieAnimationView.animate().setDuration(2000).setStartDelay(4000);
+        logo.animate().translationY(1150).setDuration(1000).setStartDelay(4000);
 
         new Handler().postDelayed(new Runnable() {
             @Override
