@@ -3,6 +3,7 @@ package com.example.wap;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -61,8 +63,22 @@ public class MainActivity extends AppCompatActivity {
         // Bottom Navigation
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setVisibility(View.VISIBLE);
+
+        // Logo Displayed On Bottom Nav Bar
         ImageView navLogo = findViewById(R.id.nav_logo);
         navLogo.setVisibility(View.VISIBLE);
+
+        navLogo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Uri uriUrl = Uri.parse("https://aquahacking.com/en/");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
+                return true;
+            }
+        });
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setBackground(null);
         bottomNavigationView.getMenu().getItem(2).setEnabled(false);

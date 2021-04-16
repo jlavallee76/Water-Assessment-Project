@@ -3,6 +3,7 @@ package com.example.wap;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -120,6 +122,8 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 
         // This contains the MapView in XML and needs to be called after the access token is configured.
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+        // This is the Floating Action Button
         selectLocationButton = getActivity().findViewById(R.id.fab);
         selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
