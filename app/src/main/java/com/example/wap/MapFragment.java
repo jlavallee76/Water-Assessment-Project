@@ -1,6 +1,7 @@
 package com.example.wap;
 
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
@@ -200,9 +201,6 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 
                     // Hide the hovering red hovering ImageView marker
                     hoveringMarker.setVisibility(View.INVISIBLE);
-                    // Transform the appearance of the button to become the cancel button
-                    selectLocationButton.setBackgroundColor(
-                            ContextCompat.getColor(getActivity(), R.color.colorAccent));
 
                     // Show the SymbolLayer icon to represent the selected map location
                     if (style.getLayer(DROPPED_MARKER_LAYER_ID) != null) {
@@ -252,10 +250,6 @@ public class MapFragment extends Fragment implements PermissionsListener, OnMapR
 //                            reverseGeocode(Point.fromLngLat(mapTargetLatLng.getLongitude(), mapTargetLatLng.getLatitude()));
 
                 } else {
-
-                    // Switch the button appearance back to select a location.
-                    selectLocationButton.setBackgroundColor(
-                            ContextCompat.getColor(getActivity(), R.color.colorPrimary));
                     // Lets get the plus on the FAB to a minus here
                     selectLocationButton.setImageResource(R.drawable.ic_baseline_add_24);
 
